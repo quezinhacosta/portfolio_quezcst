@@ -307,9 +307,9 @@ header {
 }
 
 .about img {
-    width: 190px;
+    width: 210px;
     height: 300px;
-    border-radius: 20% 0% 20% 0%;
+    border-radius: 0%;
     object-fit: cover;
     border: 1px solid var(--white);
     display: block;
@@ -640,5 +640,71 @@ header {
 .hab-btn:hover {
     transform: scale(1.1);
     background: #3d013d;
+}
+
+.contato {
+    padding: 5rem 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contato h1 {
+    font-size: 2.5rem;
+    color: var(--stranberry);
+    margin-bottom: 1rem;
+}
+
+.contato-texto {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.contato-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contato-form input,
+.contato-form textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contato-form input:focus,
+.contato-form textarea:focus {
+    border-color: var(--stranberry);
+    box-shadow: 0 0 0 2px rgba(230, 202, 219, 0.4);
+}
+
+.contato-form textarea {
+    resize: none;
+}
+
+.contato-form button {
+    margin-top: 1rem;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--stranberry);
+    color: var(--black);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contato-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
