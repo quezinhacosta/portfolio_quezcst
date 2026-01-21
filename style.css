@@ -1,13 +1,13 @@
 :root {
-    --stranberry: #991111;
+    --stranberry: #0000008e;
     --white: #ffffff;
     --black: #1a1a1a;
     --light-gray: #f5f5f5;
 }
 
-/* SEÇÃO HOME */
+
 .home {
-    min-height: 100vh;
+    min-height: 2vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,9 +16,9 @@
     position: relative;
     overflow: hidden;
   
-    background: linear-gradient(-45deg, #000000, #991111, #e45a5a, #000000);
+    background: linear-gradient(-45deg, #424242, #22021e, #68365a, #53294c, #69047e, #000000);
     background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
+    animation: gradientMove 2s ease infinite;
     color: #fff;
   }
 
@@ -39,12 +39,12 @@
     margin: 0 auto;
     animation: fadeIn 1.5s ease-out;
 }
-
+/* desnecessario mas vou deixar aq caso mude futuramente*/
 .home h1 {
     font-size: 4rem;
     margin: 1rem 0;
-    color: var(--white);
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.26);
+    color: var(--black);
+    text-shadow: 2px 2px 4px rgba(202, 202, 202, 0.658);
     letter-spacing: 1px;
     font-weight: 700;
 }
@@ -52,11 +52,10 @@
 .home h2 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
-    color: var(--white);
+    color: var(--black);
     font-weight: 400;
 }
 
-/* ANIMAÇÕES */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -82,23 +81,7 @@
       padding: 0.5rem;
     }
   
-    /* Ajusta seção .about */
-    .about {
-      flex-direction: column;
-      padding: 3rem 1rem;
-    }
   
-    .about img {
-      width: 150px;
-      height: 150px;
-    }
-  
-    .about p {
-      font-size: 1rem;
-      padding-left: 1rem;
-    }
-  
-    /* Projetos */
     .project-grid {
       gap: 1.5rem;
     }
@@ -231,7 +214,7 @@ header {
 .nav-list {
     display: flex;         
     justify-content: center; 
-    gap: 2rem;             
+    gap: 3rem;             
     list-style: none;      
 }
 .nav-list li {
@@ -240,14 +223,15 @@ header {
 }
 
 .nav-list a {
-    color: var(--white);
+    color: var(--black);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: italic;
     font-size: 1.1rem;
-    padding: 0.5rem 0;
+    padding: 0.1rem 0;
     position: relative;
     transition: all 0.3s ease;
     display: inline-block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Efeitos hover */
@@ -323,14 +307,14 @@ header {
 }
 
 .about img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    width: 190px;
+    height: 300px;
+    border-radius: 20% 0% 20% 0%;
     object-fit: cover;
-    border: 5px solid var(--stranberry);
+    border: 1px solid var(--white);
     display: block;
     margin: 0 auto 2rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(243, 241, 241, 0.795);
     transition: all 0.3s ease;
 }
 
@@ -403,12 +387,11 @@ header {
 .about p:nth-child(4) { animation-delay: 0.4s; }
 
 
-/* SEÇÃO DE PROJETOS */
 .projects {
     padding: 5rem 2rem;
-    background-color: var(--white);
     max-width: 1200px;
     margin: 0 auto;
+    background-color: var(--white);
     position: relative;
 }
 
@@ -436,34 +419,50 @@ header {
     margin: 2rem 0 1.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--stranberry);
-    display: inline-block;
     color: var(--black);
+    display: inline-block;
 }
 
-.projects-completed, .projects-in-progress {
+.projects-completed,
+.projects-in-progress {
     margin-bottom: 3rem;
 }
 
-/* CARDS DE PROJETOS */
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
     gap: 2rem;
-    margin-top: 1.5rem;
+
+    padding: 1rem 0;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+}
+
+.project-grid::-webkit-scrollbar {
+    display: none;
 }
 
 .project-card {
-    background: white;
-    border-radius: 8px;
+    flex: 0 0 300px;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
     border: 1px solid #eee;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: start;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
 }
 
 .project-image {
@@ -479,7 +478,7 @@ header {
 }
 
 .project-card:hover .project-image img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .project-info {
@@ -487,9 +486,9 @@ header {
 }
 
 .project-info h3 {
-    margin-top: 0;
-    color: var(--stranberry);
+    margin: 0 0 0.5rem;
     font-size: 1.3rem;
+    color: var(--stranberry);
 }
 
 .project-info p {
@@ -506,9 +505,9 @@ header {
 
 .tag {
     background-color: var(--stranberry);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
+    color: #0a0707;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
     font-size: 0.8rem;
 }
 
@@ -528,75 +527,51 @@ header {
 }
 
 .project-links a:hover {
-    color: #cc0000;
+    color: #ce4183;
 }
 
-.project-links i {
-    font-size: 1rem;
-}
-
-@media (max-width: 768px) {
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .projects h1 {
-        font-size: 2rem;
-    }
-    
-    .projects h2 {
-        font-size: 1.5rem;
-    }
-}
-
-/* carroseis */
 .carousel-container {
     position: relative;
     margin: 2rem 0;
-}
-
-.project-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 2rem;
-    padding: 1rem 0;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; 
-}
-
-.project-grid::-webkit-scrollbar {
-    display: none; 
-}
-
-.project-card {
-    scroll-snap-align: start;
-    flex: 0 0 300px;
-    min-width: 300px;
 }
 
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--stranberry);
-    color: white;
-    border: none;
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border: none;
+    background: var(--stranberry);
+    color: #fff;
     cursor: pointer;
     z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .carousel-btn:hover {
-    background: #cc0000;
+    transform: translateY(-50%) scale(1.1);
+    background: #942c7a;
+}
+
+@media (max-width: 768px) {
+    .projects h1 {
+        font-size: 2rem;
+    }
+
+    .projects h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+.carousel-btn:hover {
+    background: #942c7a;
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -613,46 +588,57 @@ header {
 }
 
 .habilidades {
-    padding: 4rem 2rem;
-    background-color: var(--white);
+    padding: 5rem 2rem;
     text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .habilidades h1 {
-    font-size: 2.5rem;
-    margin: 2rem 0 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--stranberry);
-    display: inline-block;
-    color: var(--stranberry);
-  }
-  
-  /* Container das imagens */
-  .linguagens {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 3rem;
-  }
+}
 
-  .ling-hab {
+.linguagens {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
     gap: 2rem;
-  }
-  
-  /* Cada imagem de habilidade */
-  .ling-hab img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .ling-hab img:hover {
+}
+
+.ling-hab {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 340px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.ling-hab img {
+    width: 80px;
+    margin-bottom: 1rem;
+}
+
+.hab-info h2 {
+    margin-bottom: 0.5rem;
+}
+
+.hab-info p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.hab-btn {
+    background: var(--stranberry);
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hab-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
+    background: #3d013d;
+}
+
